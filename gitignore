@@ -165,5 +165,6 @@ pgdata
 
 *.tsv
 
-Footer
+.idea/
+
 
