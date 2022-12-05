@@ -15,13 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.http import HttpResponse
-from django.urls import path
+from django.urls import path, include
 
 
 def my_view(request):
     return HttpResponse('OK')
 
 urlpatterns = [
-    path('', my_view),
+    path('', include('apps.lms.urls')),
+    path('lms/', include('apps.lms.urls')),
     path('admin/', admin.site.urls),
 ]
