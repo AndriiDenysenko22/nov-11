@@ -154,6 +154,7 @@ yarn-error.log
 .idea
 .vscode
 
+static/
 static
 .env
 xmlrunner
