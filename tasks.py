@@ -19,8 +19,7 @@ def runit(ctx):
             ' --processes=4'
             ' --harakiri=20'
             ' --max-requests=5000'
-            ' --vacuum'
-            )
+            ' --vacuum')
 
     if os.getenv('PY_AUTORELOAD', 'False').lower() in ('true', '1'):
         uwsgi_command += '  --py-autoreload 1'

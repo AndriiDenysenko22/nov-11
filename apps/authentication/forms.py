@@ -6,7 +6,7 @@ User = get_user_model()
 
 
 class LoginForm(forms.Form):
-    email = forms.EmailField(label=_('Email Addres'))
+    email = forms.EmailField(label=_('Email Address'))
     password = forms.CharField(label=_('Password'), widget=forms.PasswordInput)
 
     def clean(self):
