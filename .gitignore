@@ -154,6 +154,8 @@ yarn-error.log
 .idea
 .vscode
 
+
+config/certs
 static/
 static
 .env
