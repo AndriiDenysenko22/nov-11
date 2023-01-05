@@ -26,14 +26,25 @@ services:
     depends_on:
       - web
     image: nginx:1.23.3
+    networks:
+      - default
+      - nginx-proxy
     volumes:
       - static:/static:ro
-      - ${NGINX_CONFIG:-./config/nginx.conf}:/etc/nginx/conf.d/default.conf:ro
-      - ./config/certs:/etc/ssl:ro
-    ports:
-      - "${NGINX_PORT}:80"
-      - "${NGINX_SSL_PORT}:443"
+      - ./config/nginx.conf:/etc/nginx/conf.d/default.conf:ro
 
+    ports:
+      - "8000:80"
+    environment:
+      - VIRTUAL_HOST=nov-11.cottoninmoscow.com
+      - VIRTUAL_PORT=80
+      - LETSENCRYPT_HOST=nov-11.cottoninmoscow.com
+      - LETSENCRYPT_EMAIL=admin@nov-11.cottoninmoscow.com
+
+networks:
+  default:
+  nginx-proxy:
+    name: nginx-proxy
 
 volumes:
   pgdata:
