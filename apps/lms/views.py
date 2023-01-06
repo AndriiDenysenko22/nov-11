@@ -1,8 +1,7 @@
 from django.views.generic import ListView, CreateView, UpdateView
-from .models import Student
 from django.urls import reverse_lazy
-
 from bootstrap_datepicker_plus.widgets import DatePickerInput
+from .models import Student
 
 
 class StudentListView(ListView):
@@ -14,8 +13,8 @@ class StudentCreateView(CreateView):
     success_url = reverse_lazy('lms:student-list')
     fields = ['name', 'birth_date']
 
-    def get_form(self):
-        form = super().get_form()
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class=form_class)
         form.fields['birth_date'].widget = DatePickerInput()
         return form
 
@@ -25,7 +24,7 @@ class StudentUpdateView(UpdateView):
     success_url = reverse_lazy('lms:student-list')
     fields = ['name', 'birth_date']
 
-    def get_form(self):
-        form = super().get_form()
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class=form_class)
         form.fields['birth_date'].widget = DatePickerInput()
         return form
