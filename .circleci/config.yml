@@ -8,10 +8,10 @@ jobs:
     steps:
       - checkout
       - run: pip install -r requirements-dev.txt
-      - run: prospector
+      - run: prospector apps
 
 # Orchestrate our job run sequence
 workflows:
   check_code:
     jobs:
-      - prospector apps
+      - prospector
