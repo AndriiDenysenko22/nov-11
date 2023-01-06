@@ -14,4 +14,4 @@ jobs:
 workflows:
   check_code:
     jobs:
-      - prospector
+      - prospector apps
