@@ -15,4 +15,3 @@ workflows:
   check_code:
     jobs:
       - prospector
-
