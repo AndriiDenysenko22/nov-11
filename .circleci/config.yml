@@ -11,11 +11,10 @@ jobs:
           key: python-dev-requirements
       - run: pip install -r requirements-dev.txt
       - save_cache:
-          key: python-requirements
+          key: python-dev-requirements
           paths:
             - /usr/local/lib/python3.9/site-packages
       - run: prospector apps
-
 # Orchestrate our job run sequence
 workflows:
   check_code:
