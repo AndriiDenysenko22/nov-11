@@ -7,9 +7,14 @@ jobs:
       - image: circleci/python:3.9
     steps:
       - checkout
+      - restore_cache:
+          key: python-dev-requirements
       - run: pip install -r requirements-dev.txt
-      - run: prospector
-
+      - save_cache:
+          key: python-dev-requirements
+          paths:
+            - /usr/local/lib/python3.9/site-packages
+      - run: prospector apps
 # Orchestrate our job run sequence
 workflows:
   check_code:
