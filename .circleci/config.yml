@@ -15,8 +15,25 @@ jobs:
           paths:
             - /usr/local/lib/python3.9/site-packages
       - run: prospector apps
+
+  tests:
+    docker:
+      - image: circleci/python:3.9
+    steps:
+      - checkout
+      - restore_cache:
+          key: python-dev-requirements
+      - run: pip install -r requirements-dev.txt
+      - save_cache:
+          key: python-dev-requirements
+          paths:
+            - /usr/local/lib/python3.9/site-packages
+      - run: coverage run ./manage.py tests
+      - run: coverage report -m
+
 # Orchestrate our job run sequence
 workflows:
   check_code:
     jobs:
       - prospector
+      - tests
