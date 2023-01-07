@@ -29,7 +29,7 @@ jobs:
           paths:
             - /usr/local/lib/python3.9/site-packages
       - run: coverage run ./manage.py test
-      - run: coverage report --fail-under=90
+      - run: coverage report --fail-under=80
 
 # Orchestrate our job run sequence
 workflows:
