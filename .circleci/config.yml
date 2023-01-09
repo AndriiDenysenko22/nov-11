@@ -8,7 +8,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: python-dev-requirements
+          key: python-dev-requirements-3.9
       - run: pip install -r requirements-dev.txt
       - save_cache:
           key: python-dev-requirements-3.9
