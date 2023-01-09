@@ -34,7 +34,7 @@ jobs:
 
   deploy_dev:
     docker:
-      - image: circle/python:3.9
+      - image: circleci/python:3.9
     steps:
       - restore_cache:
           key: python-dev-requirements
