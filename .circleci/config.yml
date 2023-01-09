@@ -31,9 +31,32 @@ jobs:
       - run: coverage run ./manage.py test
       - run: coverage report --fail-under=80
 
+
+  deploy_dev:
+    docker:
+      - image: circle/python:3.9
+    steps:
+      - restore_cache:
+          key: python-dev-requirements
+      - run: pip install -r requirements-dev.txt
+      - save_cache:
+          key: python-dev-requirements-3.9
+          paths:
+            - /usr/local/lib/python3.9/site-packages
+      - run: coverage run ./manage.py test
+      - run: coverage report --fail-under=80
+
 # Orchestrate our job run sequence
 workflows:
   check_code:
     jobs:
       - prospector
       - tests
+
+  deploy_dev:
+    jobs:
+      - deploy_dev:
+        filters:
+          branches:
+            only:
+              - main
