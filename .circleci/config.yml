@@ -37,14 +37,8 @@ jobs:
       - image: circleci/python:3.9
     steps:
       - checkout
-      - restore_cache:
-          key: python-dev-requirements
-      - run: pip install -r requirements-dev.txt
-      - save_cache:
-          key: python-dev-requirements-3.9
-          paths:
-            - /usr/local/lib/python3.9/site-packages
-      - run: echo "deploying dev"
+      - run: pip install boto3
+      - run: python deploy.py
 
 # Orchestrate our job run sequence
 workflows:
