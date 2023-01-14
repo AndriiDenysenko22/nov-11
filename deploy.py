@@ -7,6 +7,7 @@ import boto3
 
 logging.basicConfig(level=logging.INFO)
 
+
 class Pexpect:
     def __init__(self, host, default_expect='ubuntu@', timeout=300):
         self.host = host
@@ -65,4 +66,4 @@ def deploy():
 
 
 if __name__ == '__main__':
-    deploy_host('44.212.39.6')
+    deploy()
