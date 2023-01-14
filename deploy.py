@@ -33,7 +33,7 @@ def find_instances():
     ec2 = boto3.resource(service_name='ec2', region_name='us-east-1')
     running_instances = ec2.instances.filter(Filters=[
         {'Name': 'instance-state-name', 'Values': ['running']},
-        {'Name': 'tag:proj', 'Values': ['nov-11']},
+        {'Name': 'tag:project', 'Values': ['nov-11']},
     ])
     return running_instances
 
@@ -60,7 +60,6 @@ def deploy_host(instance):
 
 def deploy():
     instances = find_instances()
-    print(find_instances())
 
     for instance in instances:
         deploy_host(instance)
