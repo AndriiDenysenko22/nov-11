@@ -37,9 +37,11 @@ jobs:
     steps:
       - checkout
       - run: pip install boto3 pexpect
-      - add_ssh_keys:
-          fingerprints:
-            - "c0:6b:91:ac:02:17:f5:e2:d2:a8:d9:cb:39:36:92:c0"
+
+#      - add_ssh_keys:
+#          fingerprints:
+#            - "c0:6b:91:ac:02:17:f5:e2:d2:a8:d9:cb:39:36:92:c0"
+
       - run: python deploy.py
 
 # Orchestrate our job run sequence
