@@ -60,7 +60,7 @@ def deploy_host(instance):
 
 def deploy():
     instances = find_instances()
-    print(instances)
+    print(find_instances())
 
     for instance in instances:
         deploy_host(instance)
