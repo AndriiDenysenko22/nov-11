@@ -35,7 +35,7 @@ jobs:
     docker:
       - image: sham51/nov-11-deploy
     steps:
-      - checkout
+#      - checkout
       - run: pip install boto3 pexpect
       - add_ssh_keys:
           fingerprints:
