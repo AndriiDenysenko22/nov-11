@@ -64,6 +64,8 @@ def deploy():
     for instance in instances:
         deploy_host(instance)
 
+    print("aaaaa")
+
 
 if __name__ == '__main__':
     deploy()
