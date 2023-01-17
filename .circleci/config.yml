@@ -56,3 +56,4 @@ workflows:
             branches:
               only:
                 - main
+                - imdb
