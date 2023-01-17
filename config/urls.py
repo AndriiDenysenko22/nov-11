@@ -25,11 +25,9 @@ from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
-]
-
-urlpatterns += i18n_patterns(
-    path('', include('apps.lms.urls', namespace='lms')),
+    path('', include('apps.imdb.urls', namespace='imdb')),
+    path('lms/', include('apps.lms.urls', namespace='lms')),
     path('admin/', admin.site.urls),
     path('auth/', include('apps.authentication.urls', namespace='auth')),
 
-)
+]

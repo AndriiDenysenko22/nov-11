@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
     'apps.lms',
     'apps.authentication',
+    'apps.imdb',
 ]
 
 MIDDLEWARE = [
