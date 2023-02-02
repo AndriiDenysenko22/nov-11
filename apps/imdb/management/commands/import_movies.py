@@ -30,6 +30,6 @@ class Command(BaseCommand):
 
                 movie, created = Movie.objects.get_or_create(imdb_id=row_data['imdb_id'], defaults=row_data)
                 if not created:
-                    Movie.objects.filter(id=movie.id).update(**row_data)
+                    Movie.objects.filter(imdb_id=movie.imdb_id).update(**row_data)
 
                 print(row_data)
